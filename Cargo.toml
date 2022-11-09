@@ -1,0 +1,15 @@
+[package]
+name = "nightly-quirks"
+version = "0.1.0"
+authors = ["Andrea Cracco <guilucand@gmail.com>"]
+edition = "2021"
+categories = ["nightly", "utilities"]
+description = "A basic set of utilities that mimic nightly behaviour in stable Rust, with the possibility of using nightly implementation with the nightly feature."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Guilucand/nightly-quirks-rs"
+
+[features]
+nightly = []
+
+[dependencies]
+parking_lot = "0.12.1"
