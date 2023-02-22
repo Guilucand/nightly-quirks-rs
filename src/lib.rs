@@ -1,4 +1,4 @@
-#![deny(warnings)]
+#![cfg_attr(debug_assertions, deny(warnings))]
 #![cfg_attr(feature = "nightly", feature(new_uninit))]
 
 pub mod branch_pred;
