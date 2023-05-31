@@ -3,6 +3,7 @@
 
 pub mod branch_pred;
 pub mod iter;
+pub mod slice_group_by;
 pub mod utils;
 
 pub mod prelude {
