@@ -38,8 +38,8 @@ impl NightlyUtils {
         {
             let mut vec = Vec::with_capacity(size);
             unsafe {
-                vec.set_len(size);
                 std::ptr::write_bytes(vec.as_mut_ptr(), 0, size);
+                vec.set_len(size);
             }
             vec.into_boxed_slice()
         }
@@ -57,6 +57,19 @@ impl NightlyUtils {
         }
         #[cfg(feature = "nightly")]
         Box::new_uninit_slice(size).assume_init()
+    }
+
+    #[inline]
+    pub unsafe fn box_new_zeroed_slice_assume_init<T: Copy>(size: usize) -> Box<[T]> {
+        #[cfg(not(feature = "nightly"))]
+        {
+            let mut vec = Vec::with_capacity(size);
+            std::ptr::write_bytes(vec.as_mut_ptr(), 0, size);
+            vec.set_len(size);
+            vec.into_boxed_slice()
+        }
+        #[cfg(feature = "nightly")]
+        Box::new_zeroed_slice(size).assume_init()
     }
 
     pub fn mutex_get_or_init<'a, T>(
