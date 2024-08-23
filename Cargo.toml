@@ -1,6 +1,6 @@
 [package]
 name = "nightly-quirks"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Andrea Cracco <guilucand@gmail.com>"]
 edition = "2021"
 categories = []
@@ -12,4 +12,4 @@ repository = "https://github.com/Guilucand/nightly-quirks-rs"
 nightly = []
 
 [dependencies]
-parking_lot = "0.12.1"
+parking_lot = "0.12.3"
